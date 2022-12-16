@@ -1,21 +1,51 @@
 import 'package:flutter/material.dart';
 
+import '../model/choice_item.dart';
+import 'my_chip.dart';
+
 class Header extends StatelessWidget {
-  const Header({Key? key}) : super(key: key);
+  final List<ChoiceItem> choices;
+
+  const Header({
+    Key? key,
+    required this.choices,
+  }) : super(key: key);
+
+  Widget _returnItems(BuildContext context) {
+    var items = choices.where((element) => element.isSelected);
+    if (items.isEmpty) {
+      return Text(
+        "Cliquez sur les choix en dessous !",
+        style: Theme.of(context).textTheme.bodyText2,
+      );
+    } else {
+      return Wrap(
+        children: items
+            .map((e) => MyChip(
+                  item: e,
+                  isSelectable: false,
+                ))
+            .toList(),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: const BoxConstraints.expand(height: 50),
-      color: Colors.blue,
-      child: const Center(
-        child: Text(
-          'Header',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 24,
+      margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+      padding: const EdgeInsets.all(15),
+      color: Colors.deepPurple,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Vos choix :',
+            style: Theme.of(context).textTheme.headline1,
           ),
-        ),
+          const SizedBox(height: 10),
+          _returnItems(context)
+        ],
       ),
     );
   }

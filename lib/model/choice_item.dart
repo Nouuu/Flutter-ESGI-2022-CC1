@@ -4,7 +4,10 @@ class ChoiceItem {
 
   ChoiceItem({
     required this.title,
-  });
+    isSelected = false,
+  }) {
+    _isSelected = isSelected;
+  }
 
   bool get isSelected => _isSelected;
 

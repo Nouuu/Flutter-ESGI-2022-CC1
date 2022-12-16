@@ -1,18 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:pringle_selector/model/choice_item.dart';
+import 'package:pringle_selector/ui/my_chip.dart';
 
 class Footer extends StatelessWidget {
-  const Footer({Key? key}) : super(key: key);
+  final List<ChoiceItem> choices;
+  final void Function(ChoiceItem) onItemTap;
+
+  const Footer({
+    Key? key,
+    required this.choices,
+    required this.onItemTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
-      color: Colors.black,
-      child: const Center(
-        child: Text(
-          '© 2020 Flutter',
-          style: TextStyle(color: Colors.white),
-        ),
+      padding: const EdgeInsets.all(5),
+      color: Colors.white,
+      child: Wrap(
+        children: choices
+            .map(
+              (e) => MyChip(item: e, onTap: () => onItemTap(e)),
+            )
+            .toList(),
       ),
     );
   }
