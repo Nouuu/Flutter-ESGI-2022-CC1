@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pringle_selector/model/choice_item.dart';
-import 'package:pringle_selector/ui/my_chip.dart';
+import 'package:pringle_selector/model/choice.dart';
+
+import 'choice_item.dart';
 
 class Footer extends StatelessWidget {
-  final List<ChoiceItem> choices;
-  final void Function(ChoiceItem) onItemTap;
+  final List<Choice> choices;
+  final void Function(Choice) onItemTap;
 
   const Footer({
     Key? key,
@@ -22,7 +23,7 @@ class Footer extends StatelessWidget {
         runSpacing: 10,
         children: choices
             .map(
-              (e) => MyChip(item: e, onTap: () => onItemTap(e)),
+              (e) => ChoiceItem(item: e, onTap: () => onItemTap(e)),
             )
             .toList(),
       ),

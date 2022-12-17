@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../model/choice_item.dart';
-import 'my_chip.dart';
+import '../model/choice.dart';
+import 'choice_item.dart';
 
 class Header extends StatelessWidget {
-  final List<ChoiceItem> choices;
+  final List<Choice> choices;
 
   const Header({
     Key? key,
@@ -22,7 +22,7 @@ class Header extends StatelessWidget {
         spacing: 10,
         runSpacing: 10,
         children: choices
-            .map((e) => MyChip(
+            .map((e) => ChoiceItem(
                   item: e,
                   isSelectable: false,
                 ))

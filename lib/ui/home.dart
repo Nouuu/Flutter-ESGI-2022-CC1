@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pringle_selector/model/choice_item.dart';
+import 'package:pringle_selector/model/choice.dart';
 import 'package:pringle_selector/ui/footer.dart';
 import 'package:pringle_selector/ui/header.dart';
 
@@ -21,13 +21,13 @@ class _HomeState extends State<Home> {
   ChoiceService _choiceService = ChoiceService();
 
   _HomeState() {
-    _choiceService.addChoice(ChoiceItem(title: "cinema"));
-    _choiceService.addChoice(ChoiceItem(title: "petanque"));
-    _choiceService.addChoice(ChoiceItem(title: "fitness"));
-    _choiceService.addChoice(ChoiceItem(title: "League Of Legends"));
-    _choiceService.addChoice(ChoiceItem(title: "basket"));
-    _choiceService.addChoice(ChoiceItem(title: "shopping"));
-    _choiceService.addChoice(ChoiceItem(title: "programmation"));
+    _choiceService.addChoice(Choice(title: "cinema"));
+    _choiceService.addChoice(Choice(title: "petanque"));
+    _choiceService.addChoice(Choice(title: "fitness"));
+    _choiceService.addChoice(Choice(title: "League Of Legends"));
+    _choiceService.addChoice(Choice(title: "basket"));
+    _choiceService.addChoice(Choice(title: "shopping"));
+    _choiceService.addChoice(Choice(title: "programmation"));
   }
 
   @override
@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  _onItemTap(ChoiceItem item) {
+  _onItemTap(Choice item) {
     if (item.isSelected) {
       _choiceService.unselectChoice(item);
     } else {

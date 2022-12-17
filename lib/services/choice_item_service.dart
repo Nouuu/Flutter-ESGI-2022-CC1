@@ -1,8 +1,8 @@
-import '../model/choice_item.dart';
+import '../model/choice.dart';
 
 class ChoiceService {
   static final ChoiceService _singleton = ChoiceService._internal();
-  final _choiceList = <ChoiceItem>[];
+  final _choiceList = <Choice>[];
 
   factory ChoiceService() {
     return _singleton;
@@ -10,7 +10,7 @@ class ChoiceService {
 
   ChoiceService._internal();
 
-  void addChoice(ChoiceItem choice) {
+  void addChoice(Choice choice) {
     int choiceIndexes =
         _choiceList.indexWhere((element) => element.title == choice.title);
     if (choiceIndexes == -1) {
@@ -18,7 +18,7 @@ class ChoiceService {
     }
   }
 
-  void selectChoice(ChoiceItem choice) {
+  void selectChoice(Choice choice) {
     int choiceIndexes =
         _choiceList.indexWhere((element) => element.title == choice.title);
     if (choiceIndexes != -1) {
@@ -26,7 +26,7 @@ class ChoiceService {
     }
   }
 
-  void unselectChoice(ChoiceItem choice) {
+  void unselectChoice(Choice choice) {
     int choiceIndexes =
         _choiceList.indexWhere((element) => element.title == choice.title);
     if (choiceIndexes != -1) {
@@ -38,9 +38,9 @@ class ChoiceService {
     _choiceList.removeWhere((choice) => choice.title == title);
   }
 
-  List<ChoiceItem> get choices => List.unmodifiable(_choiceList);
+  List<Choice> get choices => List.unmodifiable(_choiceList);
 
-  List<ChoiceItem> get selectedChoices => List.unmodifiable(
+  List<Choice> get selectedChoices => List.unmodifiable(
       _choiceList.where((element) => element.isSelected).toList()
         ..sort((a, b) => a.selectedAt.compareTo(b.selectedAt)));
 

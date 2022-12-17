@@ -1,9 +1,9 @@
-class ChoiceItem {
+class Choice {
   bool _isSelected = false;
   late DateTime _selectedAt;
   final String title;
 
-  ChoiceItem({
+  Choice({
     required this.title,
     isSelected = false,
   }) {
