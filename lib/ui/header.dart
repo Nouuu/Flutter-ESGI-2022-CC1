@@ -36,7 +36,7 @@ class Header extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(top:15),
       padding: const EdgeInsets.all(15),
-      color: Colors.deepPurple,
+      color: const Color(0xFF7c34fe),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
