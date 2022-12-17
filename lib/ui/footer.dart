@@ -15,9 +15,11 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(5),
+      padding: const EdgeInsets.all(15),
       color: Colors.white,
       child: Wrap(
+        spacing: 10,
+        runSpacing: 10,
         children: choices
             .map(
               (e) => MyChip(item: e, onTap: () => onItemTap(e)),

@@ -4,7 +4,6 @@ class ChoiceService {
   static final ChoiceService _singleton = ChoiceService._internal();
   final _choiceList = <ChoiceItem>[];
 
-
   factory ChoiceService() {
     return _singleton;
   }
@@ -40,6 +39,10 @@ class ChoiceService {
   }
 
   List<ChoiceItem> get choices => List.unmodifiable(_choiceList);
+
+  List<ChoiceItem> get selectedChoices => List.unmodifiable(
+      _choiceList.where((element) => element.isSelected).toList()
+        ..sort((a, b) => a.selectedAt.compareTo(b.selectedAt)));
 
   int get count => _choiceList.length;
 }

@@ -12,15 +12,16 @@ class Header extends StatelessWidget {
   }) : super(key: key);
 
   Widget _returnItems(BuildContext context) {
-    var items = choices.where((element) => element.isSelected);
-    if (items.isEmpty) {
+    if (choices.isEmpty) {
       return Text(
         "Cliquez sur les choix en dessous !",
         style: Theme.of(context).textTheme.bodyText2,
       );
     } else {
       return Wrap(
-        children: items
+        spacing: 10,
+        runSpacing: 10,
+        children: choices
             .map((e) => MyChip(
                   item: e,
                   isSelectable: false,
@@ -33,7 +34,7 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+      margin: const EdgeInsets.only(top:15),
       padding: const EdgeInsets.all(15),
       color: Colors.deepPurple,
       child: Column(

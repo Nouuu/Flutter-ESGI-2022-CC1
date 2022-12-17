@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Pringle selector',
+      title: 'Pringles selector',
       theme: ThemeData(
         textTheme: const TextTheme(
           headline1: TextStyle(

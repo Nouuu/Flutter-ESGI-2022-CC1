@@ -26,7 +26,6 @@ class MyChip extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.all(5),
         padding: const EdgeInsets.symmetric(
           horizontal: 15,
           vertical: 8,

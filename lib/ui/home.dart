@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
       children: [
         Expanded(
           flex: 2,
-          child: Header(choices: _choiceService.choices),
+          child: Header(choices: _choiceService.selectedChoices),
         ),
         Expanded(
           flex: 1,
