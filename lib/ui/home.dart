@@ -41,8 +41,7 @@ class _HomeState extends State<Home> {
         ),
         Expanded(
           flex: 1,
-          child:
-              Footer(choices: _choiceService.choices, onItemTap: _onItemTap),
+          child: Footer(choices: _choiceService.choices, onItemTap: _onItemTap),
         )
       ],
     );

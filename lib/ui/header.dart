@@ -34,7 +34,7 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top:15),
+      margin: const EdgeInsets.only(top: 15),
       padding: const EdgeInsets.all(15),
       color: const Color(0xFF7c34fe),
       child: Column(

@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home:const SafeArea(
+      home: const SafeArea(
         child: Home(title: 'Pringles selector'),
       ),
     );
